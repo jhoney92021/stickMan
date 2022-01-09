@@ -5,8 +5,9 @@ import BanditSubTypes from "./factionSubTypes/BanditSubTypes"
 import RobotSubTypes from "./factionSubTypes/RobotSubTypes"
 import UndeadSubTypes from "./factionSubTypes/UndeadSubTypes"
 import WorkerSubTypes from "./factionSubTypes/WorkerSubTypes"
+import iCardType from "./iCardType"
 
-interface iCardType{
+class CardType implements iCardType{
     cardColor: CardColors;
     cardFaction: CardFactions;
     cardSubFaction: (AssassinSubTypes 
@@ -14,6 +15,20 @@ interface iCardType{
                     | RobotSubTypes
                     | UndeadSubTypes
                     | WorkerSubTypes);
+    constructor(
+        cardColor: CardColors
+        ,cardFaction: CardFactions
+        ,cardSubFaction: (AssassinSubTypes 
+                        | BanditSubTypes 
+                        | RobotSubTypes
+                        | UndeadSubTypes
+                        | WorkerSubTypes)
+    )
+    {
+        this.cardColor = cardColor;
+        this.cardFaction = cardFaction;
+        this.cardSubFaction = cardSubFaction;
+    }
 };
 
-export default iCardType;
+export default CardType;

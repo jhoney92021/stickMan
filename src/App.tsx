@@ -10,6 +10,30 @@ import {
   GridColumn,
   Popup
 } from "semantic-ui-react";
+import { CardComponent } from './components/CardComponent';
+
+import Card from "./models/Card";
+import CardType from "./models/cardTypes/CardType";
+import CardColors from "./models/cardTypes/CardColors"
+import CardFactions from "./models/cardTypes/CardFactions";
+import WorkerSubTypes from "./models/cardTypes/factionSubTypes/WorkerSubTypes";
+
+
+let testCardType = new CardType(
+  CardColors.Orange
+  ,CardFactions.Workers
+  ,WorkerSubTypes.CarnivalWorkers
+)
+
+let testCard = new Card(
+  1
+  ,"BillyMays"
+  ,0
+  ,0
+  ,"with an exicting new product"
+  ,testCardType
+  )
+
 
 function App() {
   return (
@@ -31,6 +55,9 @@ function App() {
             }
             />
           </Container>
+          <GridColumn>
+            <CardComponent card={testCard}/>
+          </GridColumn>
         </GridColumn>
         <GridColumn>
           <div className="App">
