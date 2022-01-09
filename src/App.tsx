@@ -7,7 +7,8 @@ import {
   Header,
   Label,
   GridRow,
-  GridColumn
+  GridColumn,
+  Popup
 } from "semantic-ui-react";
 
 function App() {
@@ -15,9 +16,21 @@ function App() {
     <Grid>
       <GridRow>
         <GridColumn>
-        <Label image='src/stickyTheMan.jpg' />
+          <Container >
+            <Popup
+            justifyContent="flex"
+            trigger={
+              <Label image={require('./stickyTheMan.jpg')} />
 
-          <img src="src/stickyTheMan.jpg" alt="stickyTheMan"/>
+            }
+            content={
+              <div>
+                <h4>Sticky</h4>
+                <p>The Man </p>
+              </div>
+            }
+            />
+          </Container>
         </GridColumn>
         <GridColumn>
           <div className="App">
